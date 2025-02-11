@@ -8,21 +8,22 @@ import java.util.*;
 
 @Service
 public class PostService {
-    ArrayList<Post> posts = new ArrayList<>();
+    List<Post> posts = new ArrayList<>();
+    Long id = 0L;
 
     {
-        posts.add(new Post("post 1", new Date()));
-        posts.add(new Post("post 2", new Date()));
-        posts.add(new Post("post 3", new Date()));
+        posts.add(new Post(id++,"post" + id, new Date()));
+        posts.add(new Post(id++, "post" + id, new Date()));
+        posts.add(new Post(id++,"post" + id, new Date()));
     }
 
 
-    public Post[] listAllPosts() {
-        return posts.toArray(new Post[posts.size()]);
+    public List<Post> listAllPosts() {
+        return posts;
 
     }
 
     public void create(String text) {
-        posts.add(new Post(text, new Date()));
+        posts.add(new Post(id++, text, new Date()));
     }
 }
