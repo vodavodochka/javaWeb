@@ -11,18 +11,16 @@
     <h1 th:text="${appName}" style="color: green">Default app name</h1>
     <hr/>
     <div class="content">
-        <div class="row article" th:each="post : ${posts}">
-            <div class="col-md-10 col-md-offset-1">
-                <h3 th:text="${'Пост от ' + post.creationDate}">Пост от 2019.09.08</h3>
-            </div>
-            <div class="col-md-11 description">
-                <p class="description-text" th:text="${post.text}">Text</p>
-            </div>
-            <div class="col-md-1">
-                <button class="btn btn-sm btn-secondary like" th:text="${post.likes + ' ❤'}">0 ❤</button>
-            </div>
+        <div class="row">
             <div class="col-md-12">
-                <hr/>
+                <form method="post">
+                    <div class="form-group">
+                        <textarea name="text" class="form-control" cols="30" rows="7" placeholder="Text"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Добавить новый пост">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
